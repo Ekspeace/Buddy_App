@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "178176233787",
+    "firebase_url": "https://buddy-207b4.firebaseio.com",
+    "project_id": "buddy-207b4",
+    "storage_bucket": "buddy-207b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178176233787:android:5ccb27d291716fb11f271e",
+        "android_client_info": {
+          "package_name": "com.example.buddyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178176233787-o58j000c9vg90sssb3r4et4b2ji3qkqj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.buddyapp",
+            "certificate_hash": "491a14e48cee36aca3345e2508c2a20583db505e"
+          }
+        },
+        {
+          "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBALcIVvaO7boH97h9FOl-cAdOdyfEc_vI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

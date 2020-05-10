@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/backgroundbuddy">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbaruserOrder"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
+    <include
+        android:id="@+id/ProgressBar_order_confirm"
+        android:visibility="gone"
+        layout="@layout/progressbar"/>
+
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/logo">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <ImageView
+            android:src="@drawable/buddy_logo"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/logo"
+            android:layout_marginTop="40dp"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_height="199dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thank you for your Order!"
+            android:textAllCaps="true"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimaryLight"
+            android:fontFamily="serif"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:fontFamily="serif"
+            android:textColor="@color/colorPrimaryLight"
+            android:textStyle="bold"
+            android:layout_marginBottom="15dp"
+            android:text="Order Information"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_date_range_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_order_date_text"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="28/03/2020"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_schedule_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_order_time_text"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="10:00"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_receipt_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryLight"
+                android:id="@+id/txt_services_Order_text"
+                android:text="Car wash"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout_order_confirm_cannabis"
+            android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_assignment_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_order_type_text"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="28/03/2020"
+                android:textSize="14sp"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="serif"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/colorPrimaryLight"
+                android:layout_height="wrap_content"
+                android:text=" : "/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_order_category_text"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="28/03/2020"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_monetization_on_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_order_price_text"
+                android:textColor="@color/colorPrimaryLight"
+                android:text="28/03/2020"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout_order_confirm_grocery"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_event_black_24dp"
+                    android:layout_gravity="bottom"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:id="@+id/txt_order_Category_grocery"
+                    android:text="28/03/2020"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_store_black_24dp"
+                    android:layout_gravity="bottom"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_grocery_store"
+                    android:text="store"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_list_black_24dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_grocery_list"
+                    android:text="list"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/layout_order_confirm_other"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_event_black_24dp"
+                    android:layout_gravity="bottom"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:id="@+id/txt_order_Category_other"
+                    android:text="28/03/2020"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_comment_black_24dp"
+                    android:layout_gravity="bottom"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_other_type"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:text="type"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="5dp"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:tint="@color/colorPrimaryLight"
+                    android:src="@drawable/ic_description_black_24dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/txt_other_info"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:text="info"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="4dp"
+                    android:fontFamily="serif"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/colorPrimaryLight"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Information"
+            android:fontFamily="serif"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/colorPrimaryLight"
+            android:layout_marginBottom="15dp"
+            android:textAllCaps="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_email_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_email_user_booking"
+                android:text="Email"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_phone_black_24dp"
+                android:layout_gravity="bottom"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_user_phone_booking"
+                android:text="Phone"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:tint="@color/colorPrimaryLight"
+                android:src="@drawable/ic_home_black_24dp"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txt_user_address_booking"
+                android:text="Home Address"
+                android:textColor="@color/colorPrimaryLight"
+                android:textSize="14sp"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="serif"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="40dp">
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_confirm"
+                android:text="Confirm"
+                android:fontFamily="serif"
+                android:background="@drawable/button_buddy"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</LinearLayout>
+</RelativeLayout>

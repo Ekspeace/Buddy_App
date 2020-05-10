@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundbuddy"
+    >
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbarC"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title=" "
+        app:titleMarginStart="40dp"
+        />
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+        <include
+            android:id="@+id/ProgressBar_services"
+            android:visibility="gone"
+            layout="@layout/progressbar"/>
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginHorizontal="15dp"
+            android:src="@drawable/buddy_logo"
+            android:transitionName="logo_image" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:id="@+id/Service_text"
+            android:layout_marginTop="20dp"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:fontFamily="serif"
+            android:layout_marginBottom= "30dp"/>
+
+        <com.jaredrummler.materialspinner.MaterialSpinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_height="wrap_content"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_category_price"
+            android:visibility="gone"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:text="That will be : "
+                android:layout_width="wrap_content"
+                android:textColor="#000"
+                android:fontFamily="serif"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text_price"
+                android:textColor="#000"
+                android:text="R20.00"
+                android:textSize="15sp"
+                android:fontFamily="serif"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+    <LinearLayout
+        android:id="@+id/layout_button"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:padding="4dp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_next_step"
+            android:text="Next"
+            android:enabled="false"
+            android:fontFamily="serif"
+            android:background="@drawable/button_buddy"
+            android:layout_centerHorizontal="true"
+            android:layout_above="@+id/txt_skip"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
