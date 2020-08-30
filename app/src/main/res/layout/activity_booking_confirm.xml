@@ -24,298 +24,319 @@
 
 
         <androidx.core.widget.NestedScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="20dp"
-        android:padding="10dp"
-        >
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="wrap_content"
-            android:layout_height="199dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="50dp"
-            android:src="@drawable/buddy_logo" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thank you for booking our services !"
-            android:textAllCaps="true"
-            android:textSize="18sp"
-            android:textColor="@color/colorPrimaryLight"
-            android:fontFamily="serif"
-            android:layout_marginBottom="5dp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="true"
-            android:fontFamily="serif"
-            android:textColor="@color/colorPrimaryLight"
-            android:textStyle="bold"
-            android:layout_marginBottom="15dp"
-            android:text="Booking Information"/>
-
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
+            android:layout_height="match_parent">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_date_range_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:id="@+id/txt_booking_time_text"
-                android:text="10h00 at 28/03/2020"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_receipt_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:id="@+id/txt_services_booking_text"
-                android:text="Car wash"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_assignment_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:id="@+id/txt_category_booking_text"
-                android:text="Car"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_monetization_on_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:id="@+id/txt_price_booking_text"
-                android:text="Car wash"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:textColor="@color/colorPrimaryLight"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="User Information"
-            android:fontFamily="serif"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/colorPrimaryLight"
-            android:textStyle="bold"
-            android:layout_marginBottom="15dp"
-            android:textAllCaps="true"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_account_circle_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_user_name_booking"
-                android:textColor="@color/colorPrimaryLight"
-                android:text="User Name"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_email_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:id="@+id/txt_email_user_booking"
-                android:text="Email"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="5dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_phone_black_24dp"
-                android:layout_gravity="bottom"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_user_phone_booking"
-                android:textColor="@color/colorPrimaryLight"
-                android:text="Phone"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:tint="@color/colorPrimaryLight"
-                android:src="@drawable/ic_home_black_24dp"
-                android:layout_gravity="center"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:textColor="@color/colorPrimaryLight"
-                android:layout_height="wrap_content"
-                android:id="@+id/txt_user_address_booking"
-                android:text="Home Address"
-                android:textSize="14sp"
-                android:layout_marginLeft="4dp"
-                android:fontFamily="serif"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="40dp">
-
-            <Button
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_confirm"
-                android:text="Confirm"
-                android:fontFamily="serif"
-                android:background="@drawable/button_buddy"/>
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="20dp"
+                android:orientation="vertical"
+                android:padding="10dp">
 
-        </LinearLayout>
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="199dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="20dp"
+                    android:contentDescription="TODO"
+                    android:src="@drawable/buddy_logo" />
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/car_wash_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/backg">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="serif"
+                    android:text="Thank you for booking our services !"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="serif"
+                    android:text="Booking Information"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_date_range_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_booking_time_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="10h00 at 28/03/2020"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
 
 
-        </androidx.appcompat.widget.AppCompatSpinner>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_receipt_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_services_booking_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Car wash"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
 
 
-    </LinearLayout>
-     </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_assignment_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_category_booking_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Car"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_monetization_on_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_price_booking_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Car wash"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="@color/colorPrimaryLight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="serif"
+                    android:text="User Information"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryLight"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_account_circle_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_user_name_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="User Name"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_email_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_email_user_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Email"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_phone_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_user_phone_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Phone"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:contentDescription="TODO"
+                        android:src="@drawable/ic_home_black_24dp"
+                        android:tint="@color/colorPrimaryLight" />
+
+                    <TextView
+                        android:id="@+id/txt_user_address_booking"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:fontFamily="serif"
+                        android:text="Home Address"
+                        android:textColor="@color/colorPrimaryLight"
+                        android:textSize="14sp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btn_confirm"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_buddy"
+                        android:fontFamily="serif"
+                        android:text="Confirm" />
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/backg">
+
+
+                </androidx.appcompat.widget.AppCompatSpinner>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 </RelativeLayout>

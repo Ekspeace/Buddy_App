@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/backgroundbuddy"
-    tools:context=".Activities.EmailActivity">
+    android:background="@drawable/backgroundbuddy">
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -35,10 +32,11 @@
         <ImageView
             android:id="@+id/logo_image"
             android:layout_width="wrap_content"
-            android:layout_height="150dp"
+            android:layout_height="200dp"
             android:src="@drawable/buddy_logo"
             android:layout_marginTop="40dp"
             android:layout_marginBottom="20dp"
+            android:contentDescription="TODO"
             android:transitionName="logo_image" />
 
 

@@ -4,14 +4,17 @@
     >
     <item
         android:title="Menu"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         android:icon="@drawable/ic_more_vert_black_24dp">
         <menu>
     <item
         android:id="@+id/signOut"
         android:title="Sign Out"
         app:showAsAction="never"/>
-
+    <item
+        android:id="@+id/aboutUs"
+        android:title="About Us"
+        app:showAsAction="never"/>
         </menu>
     </item>
 

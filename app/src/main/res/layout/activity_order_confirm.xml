@@ -37,8 +37,9 @@
             android:id="@+id/logo"
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_height="199dp"/>
+            android:layout_margin="20dp"
+            android:layout_height="199dp"
+            android:contentDescription="TODO" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_date_range_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -80,8 +82,9 @@
                 android:id="@+id/txt_order_date_text"
                 android:textColor="@color/colorPrimaryLight"
                 android:text="28/03/2020"
+                android:layout_gravity="center"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
         </LinearLayout>
 
@@ -96,7 +99,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_schedule_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -104,8 +108,9 @@
                 android:id="@+id/txt_order_time_text"
                 android:textColor="@color/colorPrimaryLight"
                 android:text="10:00"
+                android:layout_gravity="center"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -121,7 +126,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_receipt_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -130,7 +136,8 @@
                 android:id="@+id/txt_services_Order_text"
                 android:text="Car wash"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -153,7 +160,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_assignment_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -162,12 +170,14 @@
                 android:textColor="@color/colorPrimaryLight"
                 android:text="28/03/2020"
                 android:textSize="14sp"
+                android:layout_gravity="center"
                 android:layout_marginLeft="5dp"
                 android:fontFamily="serif"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:textColor="@color/colorPrimaryLight"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text=" : "/>
 
             <TextView
@@ -176,8 +186,9 @@
                 android:id="@+id/txt_order_category_text"
                 android:textColor="@color/colorPrimaryLight"
                 android:text="28/03/2020"
+                android:layout_gravity="center"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -193,7 +204,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_monetization_on_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -202,7 +214,8 @@
                 android:textColor="@color/colorPrimaryLight"
                 android:text="28/03/2020"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -226,7 +239,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_event_black_24dp"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -234,8 +248,9 @@
                     android:textColor="@color/colorPrimaryLight"
                     android:id="@+id/txt_order_Category_grocery"
                     android:text="28/03/2020"
+                    android:layout_gravity="center"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -252,7 +267,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_store_black_24dp"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -261,7 +277,8 @@
                     android:text="store"
                     android:textColor="@color/colorPrimaryLight"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -278,7 +295,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_list_black_24dp"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -287,7 +305,8 @@
                     android:text="list"
                     android:textColor="@color/colorPrimaryLight"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -312,7 +331,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_event_black_24dp"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -320,8 +340,9 @@
                     android:textColor="@color/colorPrimaryLight"
                     android:id="@+id/txt_order_Category_other"
                     android:text="28/03/2020"
+                    android:layout_gravity="center"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -338,7 +359,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_comment_black_24dp"
-                    android:layout_gravity="bottom"/>
+                    android:layout_gravity="bottom"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -346,8 +368,9 @@
                     android:id="@+id/txt_other_type"
                     android:textColor="@color/colorPrimaryLight"
                     android:text="type"
+                    android:layout_gravity="center"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -364,7 +387,8 @@
                     android:layout_height="wrap_content"
                     android:tint="@color/colorPrimaryLight"
                     android:src="@drawable/ic_description_black_24dp"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="TODO" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -373,7 +397,8 @@
                     android:textColor="@color/colorPrimaryLight"
                     android:text="info"
                     android:textSize="14sp"
-                    android:layout_marginLeft="4dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="4dp"
                     android:fontFamily="serif"/>
 
 
@@ -381,7 +406,6 @@
 
 
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -410,7 +434,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_email_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -419,7 +444,8 @@
                 android:text="Email"
                 android:textColor="@color/colorPrimaryLight"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -435,7 +461,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_phone_black_24dp"
-                android:layout_gravity="bottom"/>
+                android:layout_gravity="bottom"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -444,7 +471,8 @@
                 android:text="Phone"
                 android:textColor="@color/colorPrimaryLight"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 
@@ -459,7 +487,8 @@
                 android:layout_height="wrap_content"
                 android:tint="@color/colorPrimaryLight"
                 android:src="@drawable/ic_home_black_24dp"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:contentDescription="TODO" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -468,7 +497,8 @@
                 android:text="Home Address"
                 android:textColor="@color/colorPrimaryLight"
                 android:textSize="14sp"
-                android:layout_marginLeft="4dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="4dp"
                 android:fontFamily="serif"/>
 
 

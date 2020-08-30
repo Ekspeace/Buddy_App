@@ -8,6 +8,43 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:178176233787:android:30853866a3347d841f271e",
+        "android_client_info": {
+          "package_name": "com.buddy.buddyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178176233787-19diu82hpegt0h1f1c3jtriinef9p6u9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.buddy.buddyapp",
+            "certificate_hash": "491a14e48cee36aca3345e2508c2a20583db505e"
+          }
+        },
+        {
+          "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBALcIVvaO7boH97h9FOl-cAdOdyfEc_vI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:178176233787:android:5ccb27d291716fb11f271e",
         "android_client_info": {
           "package_name": "com.example.buddyapp"

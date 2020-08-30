@@ -6,53 +6,41 @@
 
         <item
             android:id="@+id/profile"
-            android:iconTint="@color/colorPrimary"
             android:icon="@drawable/ic_account_circle_black_24dp"
             android:title="Profile"
            />
 
         <item
             android:id="@+id/Bookings"
-            android:iconTint="@color/colorPrimary"
             android:icon="@drawable/ic_event_note_black_24dp"
             android:title="Your Bookings" />
         <item
             android:id="@+id/orders"
-            android:iconTint="@color/colorPrimary"
             android:icon="@drawable/ic_shopping_basket_black_24dp"
             android:title="Your Orders" />
         <item
             android:id="@+id/aboutUs"
-            android:iconTint="@color/colorPrimary"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="About Us" />
     <item
         android:id="@+id/SignOut"
-        android:iconTint="@color/colorPrimary"
         android:icon="@drawable/ic_exit_to_app_black_24dp"
         android:title="Sign Out" />
-    <item
-        android:id="@+id/share"
-        android:iconTint="@color/colorPrimary"
-        android:icon="@drawable/ic_menu_share"
-        android:title="@string/menu_share" />
+
     <item android:title="Contact Us">
         <menu>
             <item
                 android:id="@+id/email"
-                android:iconTint="@color/colorPrimary"
                 android:icon="@drawable/ic_email_black_24dp"
                 android:title="@string/menu_email" />
             <item
-                android:id="@+id/sms"
-                android:iconTint="@color/colorPrimary"
-                android:icon="@drawable/sms"
-                android:title="@string/menu_sms" />
-            <item
                 android:id="@+id/whatsapp"
-                android:iconTint="@color/colorPrimary"
                 android:icon="@drawable/whatsapp"
                 android:title="@string/menu_whatsapp" />
+            <item
+                android:id="@+id/rate"
+                android:icon="@drawable/rate"
+                android:title="Rate Us" />
         </menu>
     </item>
 </menu>

@@ -109,7 +109,7 @@
             android:layout_marginTop="10dp">
 
             <TextView
-                android:text="@string/address_bullet"
+                android:text="@string/servicePrice_bullet"
                 android:layout_width="wrap_content"
                 android:textColor="#000"
                 android:layout_height="wrap_content"
@@ -118,7 +118,7 @@
                 />
 
             <TextView
-                android:id="@+id/txt_user_address_booking"
+                android:id="@+id/txt_user_ServicePrice_booking"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -131,7 +131,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:text="@string/bullet"
@@ -142,7 +142,7 @@
 
             <TextView
                 android:id="@+id/txt_time_remain"
-                android:text=" Time"
+                android:text=""
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"

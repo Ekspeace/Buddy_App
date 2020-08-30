@@ -6,10 +6,7 @@
     android:id="@+id/drawer"
     android:background="@drawable/backgroundbuddy"
     android:layout_height="match_parent"
-    tools:context=".Activities.MenuActivity"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-
     <include
         layout="@layout/app_bar_menu"
         android:layout_width="match_parent"
@@ -24,7 +21,8 @@
             android:layout_gravity = "start"
             app:headerLayout="@layout/nav_header"
             android:layout_marginRight="60dp"
-            app:itemTextColor="#000"
+            app:itemIconTint="@color/colorPrimary"
+            app:itemTextColor="@color/colorPrimary"
             >
 
         </com.google.android.material.navigation.NavigationView>

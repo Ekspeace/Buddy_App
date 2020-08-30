@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
    android:layout_margin="15dp"
     android:clickable="true"
-    android:focusable="auto"
+    android:focusable="true"
     android:orientation="vertical"
     app:cardCornerRadius="15dp"
     >
@@ -28,7 +28,7 @@
                 android:id="@+id/img_service"
                 android:layout_gravity="center_horizontal"
                 android:tint="#000"
-                />
+                android:contentDescription="TODO" />
             </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"

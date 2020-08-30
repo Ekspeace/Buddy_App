@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundbuddy"
-    tools:context=".BookingActivity">
+    >
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -18,8 +18,6 @@
         android:id="@+id/toolbarbook"
         android:background="@color/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:title=" "
-        app:titleMarginStart="40dp"
         />
     <include
         android:id="@+id/ProgressBar_booking"
@@ -61,7 +59,6 @@
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_button"
         android:orientation="horizontal"
         android:weightSum="2"
         android:padding="4dp"

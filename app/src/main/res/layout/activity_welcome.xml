@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundbuddy"
+    tools:context=".Activities.WelcomeActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <include
+        android:id="@+id/ProgressBar_main"
+        layout="@layout/progressbar"
+        android:visibility="gone"/>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="30dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/buddy_logo" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="4dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="200dp"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Register Now"
+            android:id="@+id/main_register_btn"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/input_design"
+            android:fontFamily="serif"
+            android:textAllCaps="false"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="15dp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/main_login_btn"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_buddy"
+            android:fontFamily="serif"
+            android:textAllCaps="false"
+            android:layout_marginHorizontal="15dp"
+            android:text="Already have an account? Sign In"
+            android:layout_marginBottom="15dp"/>
+    </LinearLayout>
+
+</LinearLayout>
+</androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</RelativeLayout>

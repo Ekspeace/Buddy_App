@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundbuddy"
-    tools:context=".Activities.OrderingActivity">
+    android:background="@drawable/backgroundbuddy">
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -18,8 +15,6 @@
             android:id="@+id/toolbarOrder"
             android:background="@color/colorPrimary"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:title=" "
-            app:titleMarginStart="40dp"
             />
     <include
         android:id="@+id/ProgressBar_order"
@@ -61,30 +56,34 @@
 </androidx.core.widget.NestedScrollView>
     </LinearLayout>
     <LinearLayout
-        android:id="@+id/layout_button_order"
         android:orientation="horizontal"
         android:weightSum="2"
-        android:padding="4dp"
+        android:padding="2dp"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
+        <Button
+            android:id="@+id/btn_Edit_ordering"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_buddy"
+            android:enabled="false"
+            android:fontFamily="serif"
+            android:text="EDIT"/>
         <Button
             android:id="@+id/btn_delete_ordering"
             android:text="DELETE"
             android:fontFamily="serif"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginLeft="10dp"
             android:background="@drawable/button_buddy"
             android:enabled="false"
-            android:layout_centerHorizontal="true"
             android:layout_width="match_parent"
-            android:layout_marginRight="4dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"/>
-
-
     </LinearLayout>
-
-
 </RelativeLayout>

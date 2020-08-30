@@ -81,13 +81,142 @@
 
         </LinearLayout>
         <LinearLayout
-            android:orientation="horizontal"
+            android:id="@+id/Grocery_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/GroceryStore_bullet"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_user_GroceryStore_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/GroceryList_bullet"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_user_GroceryList_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                />
+        </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Other_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+          <LinearLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/OtherType_bullet"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_user_OtherType_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                />
+          </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/OtherInfo_bullet"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/txt_user_OtherInfo_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Cannabis_layout"
+            android:orientation="vertical"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="@string/CannabisType_bullet"
+                android:textColor="#000"
+                android:textStyle="bold"
+                />
 
             <TextView
-                android:text="@string/address_bullet"
+                android:id="@+id/txt_user_CannabisType_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="#000"
+                />
+      </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+            <TextView
+                android:text="@string/CannabisPrice_bullet"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -96,23 +225,22 @@
                 />
 
             <TextView
-                android:id="@+id/txt_user_address_order"
+                android:id="@+id/txt_user_CannabisPrice_order"
                 android:layout_width="wrap_content"
                 android:textColor="#000"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 />
-
+            </LinearLayout>
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp">
+            android:layout_marginTop="10dp">
 
             <TextView
-                android:text="@string/bullet"
+                android:text="@string/time_bullet"
                 android:layout_width="wrap_content"
                 android:textColor="#000"
                 android:layout_height="wrap_content"
@@ -120,14 +248,13 @@
 
             <TextView
                 android:id="@+id/txt_time_ago_order"
-                android:text=" Time"
+                android:text=" "
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:weightSum="2"

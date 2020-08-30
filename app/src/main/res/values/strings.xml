@@ -1,37 +1,24 @@
 <resources>
     <string name="app_name">BuddyApp</string>
-    <string name="password">Password</string>
-    <string name="name">Name</string>
-    <string name="email">Email</string>
-    <string name="login">LOGIN</string>
-    <string name="not_registered_yet_signup_here">Not registered yet, signup here</string>
-    <string name="already_a_member_login">Already a member? Login here</string>
-    <string name="create_account">CREATE ACCOUNT</string>
 
-    <string name="address_bullet">\u2022 Address:\t</string>
+    <string name="GroceryStore_bullet">\u2022 Grocery Store:\t</string>
+    <string name="GroceryList_bullet">\u2022 Grocery List:\t</string>
+    <string name="OtherType_bullet">\u2022 Pick up Type:\t</string>
+    <string name="OtherInfo_bullet">\u2022 Pick up Info:\t</string>
+    <string name="CannabisType_bullet">\u2022 Cannabis Type:\t</string>
+    <string name="CannabisPrice_bullet">\u2022 Price:\t</string>
     <string name="time_bullet">\u2022 Time:\t</string>
+    <string name="Maps_API">AIzaSyCf4Dbej03Ew69qh8ngY6oTBtb71RfVVVg</string>
     <string name="service_bullet">\u2022 Service:\t</string>
+    <string name="servicePrice_bullet">\u2022 Price:\t</string>
     <string name="serviceType_bullet">\u2022 Service Category:\t</string>
-    <string name="bullet">\u2022\t</string>
-    <string name="rand">\u2022 \t</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="bullet">\u2022 Time remain:\t</string>
 
-    <string name="Real_email">Real_user_email_credential</string>
-    <string name="Real_password">Real_user_password_credential</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
     <string name="menu_email">Email</string>
-    <string name="menu_sms">SMS</string>
     <string name="menu_whatsapp">WhatsApp</string>
     <string name="drawerOpen">drawerOpen</string>
     <string name="drawerClose">drawerClose</string>
+    <string name="third_party_licenses">Third Party Licences</string>
+    <string name="about_us_description">This app projects to render services such as car washing services, buying essentials on your behalf, and least but not least, private and confidential orders and pick ups. What separates this app from others is that it does not consider you only as a customer, but as a buddy too.\n\n It strives in protecting the confidential credentials of customers and making sure that their privacy is protected. In case potential customers might be scared of paying online and getting scammed, the buddy app allows you to pay in cash only once the requested service has been rendered in satisfactory time.\n\n Services rendered through the app may be subject to setting appointments ( through provided numbers) depending on the service required and some may be rendered instantly to your location. Services are also subject to scrutiny in any case of dissatisfaction and refunds or discounts will be taken into consideration.</string>
 
 </resources>
