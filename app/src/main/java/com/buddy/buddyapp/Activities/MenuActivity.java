@@ -213,7 +213,7 @@ public class MenuActivity extends AppCompatActivity implements ICategoryLoadList
             backPressedTime = t;
             com.buddy.buddyapp.Constant.PopUp.smallToast(MenuActivity.this, layout, R.drawable.small_error,"Please press again to exit...",Toast.LENGTH_SHORT);
         } else {
-            System.exit(0);
+            super.onBackPressed();
         }
     }
 }

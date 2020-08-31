@@ -23,6 +23,8 @@ import com.buddy.buddyapp.Activities.LoginActivity;
 import com.buddy.buddyapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.Objects;
+
 import io.paperdb.Paper;
 
 public class PopUp extends AppCompatActivity {
@@ -65,7 +67,7 @@ public class PopUp extends AppCompatActivity {
                 intent.setType(ContactsContract.RawContacts.CONTENT_TYPE);
 
                 intent.putExtra(ContactsContract.Intents.Insert.NAME, "BuddyApp")
-                        .putExtra(ContactsContract.Intents.Insert.PHONE, "0731317517");
+                        .putExtra(ContactsContract.Intents.Insert.PHONE, "0719073758");
 
                 context.startActivity(intent);
                 alertDialog.dismiss();
@@ -73,7 +75,7 @@ public class PopUp extends AppCompatActivity {
             }
         });
 
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
 
@@ -115,7 +117,7 @@ public class PopUp extends AppCompatActivity {
             }
         });
 
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
 
@@ -182,7 +184,7 @@ public class PopUp extends AppCompatActivity {
           }
       });
 
-        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        Objects.requireNonNull(alertDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alertDialog.setCancelable(false);
         alertDialog.setCanceledOnTouchOutside(false);
         if(!((Activity) context).isFinishing())

@@ -20,6 +20,8 @@ import com.buddy.buddyapp.Constant.PopUp;
 import com.buddy.buddyapp.R;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.Objects;
+
 public class EmailActivity extends AppCompatActivity {
     private Button btn_Send;
     private TextInputLayout InputSubject, InputMessage;
@@ -85,7 +87,7 @@ public class EmailActivity extends AppCompatActivity {
 
     private void Actionbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -106,7 +108,7 @@ public class EmailActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()) {
             case R.id.signOut:
-               PopUp.SignOut(this);
+               com.buddy.buddyapp.Constant.PopUp.SignOut(this);
                 return true;
             case R.id.aboutUs:
                 startActivity(new Intent(this, AboutUs.class));

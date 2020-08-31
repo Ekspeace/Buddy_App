@@ -43,6 +43,7 @@ import com.jaredrummler.materialspinner.MaterialSpinner;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Objects;
 
 public class EditOrderActivity extends AppCompatActivity {
     private final PopUp PopUp = new PopUp();
@@ -171,7 +172,7 @@ public class EditOrderActivity extends AppCompatActivity {
                             .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                                    if (task.getResult().exists()) {
+                                    if (Objects.requireNonNull(task.getResult()).exists()) {
                                         userOrder
                                                 .update(orderInformation)
                                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -219,7 +220,7 @@ public class EditOrderActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful()) {
-                        if (!task.getResult().isEmpty()) {
+                        if (!Objects.requireNonNull(task.getResult()).isEmpty()) {
                             for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                 OrderInformation orderInformation = queryDocumentSnapshot.toObject(OrderInformation.class);
                                 Id = queryDocumentSnapshot.getId();
@@ -292,7 +293,7 @@ public class EditOrderActivity extends AppCompatActivity {
                         List<String> items = new ArrayList<>();
                         items.add("Choose a Cannabis Type");
                         List<Cannabis> rangePrices = new ArrayList<>();
-                        for (QueryDocumentSnapshot querySnapshot : task.getResult()) {
+                        for (QueryDocumentSnapshot querySnapshot : Objects.requireNonNull(task.getResult())) {
                             Cannabis cannabis = querySnapshot.toObject(Cannabis.class);
                             cannabis.setCannabisName(querySnapshot.getId());
                             cannabis.setCannabisPrice(querySnapshot.get("price").toString());
@@ -318,29 +319,25 @@ public class EditOrderActivity extends AppCompatActivity {
     private void spinnerCannabis(List<String> items, List<Cannabis> prices) {
         dialog.setVisibility(View.GONE);
         cannabis_type.setItems(items);
-        cannabis_type.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                if (position > 0 )
-                {
-                    Common.currentCannabis = new Cannabis(item.toString(),prices.get((int)id).getCannabisPrice());
-                    range_price.setText((Common.currentCannabis.getCannabisPrice()));
-                    layout_range_price.setVisibility(View.VISIBLE);
-                    btn_update.setEnabled(true);
-                    String splitPrice = prices.get((int)id).getCannabisPrice();
-                    String split = splitPrice.substring(1,splitPrice.length());
-                    priceD = Integer.parseInt(split);
-                 }
-                else {
-                    btn_update.setEnabled(false);
-                }
+        cannabis_type.setOnItemSelectedListener((view, position, id, item) -> {
+            if (position > 0 )
+            {
+                Common.currentCannabis = new Cannabis(item.toString(),prices.get((int)id).getCannabisPrice());
+                range_price.setText((Common.currentCannabis.getCannabisPrice()));
+                layout_range_price.setVisibility(View.VISIBLE);
+                btn_update.setEnabled(true);
+                String splitPrice = prices.get((int)id).getCannabisPrice();
+                String split = splitPrice.substring(1,splitPrice.length());
+                priceD = Integer.parseInt(split);
+             }
+            else {
+                btn_update.setEnabled(false);
             }
-
         });
     }
     public void Actionbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
         mToolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

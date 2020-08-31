@@ -42,6 +42,7 @@ import com.rey.material.widget.CheckBox;
 import com.rey.material.widget.TextView;
 
 import java.util.List;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 
@@ -90,10 +91,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         Dexter.withActivity(this)
-                .withPermissions(new String[]{
-                        Manifest.permission.READ_CALENDAR,
-                        Manifest.permission.WRITE_CALENDAR
-                }).withListener(new MultiplePermissionsListener() {
+                .withPermissions(Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.WRITE_CALENDAR).withListener(new MultiplePermissionsListener() {
             @Override
             public void onPermissionsChecked(MultiplePermissionsReport report) {
                 if (UserEmailKey != null) {
@@ -161,13 +160,13 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                            DocumentReference docRef = mStore.collection("users").document(task.getResult().getUser().getUid());
+                            DocumentReference docRef = mStore.collection("users").document(Objects.requireNonNull(task.getResult()).getUser().getUid());
                             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
-                                        Common.currentUser = task.getResult().toObject(User.class);
-                                        PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_success, "Your have logged in successfully", Toast.LENGTH_SHORT);
+                                        Common.currentUser = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                                        com.buddy.buddyapp.Constant.PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_success, "Your have logged in successfully", Toast.LENGTH_SHORT);
                                         loadingBar.setVisibility(View.GONE);
                                         Intent myIntent = new Intent(LoginActivity.this,
                                                 MenuActivity.class);
@@ -178,12 +177,12 @@ public class LoginActivity extends AppCompatActivity {
                             }).addOnFailureListener(new OnFailureListener() {
                                 @Override
                                 public void onFailure(@NonNull Exception e) {
-                                    PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_error, e.getMessage(), Toast.LENGTH_SHORT);
+                                    com.buddy.buddyapp.Constant.PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_error, e.getMessage(), Toast.LENGTH_SHORT);
                                     loadingBar.setVisibility(View.GONE);
                                 }
                             });
                     } else {
-                        PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_error, "Please Check your credential and try again", Toast.LENGTH_SHORT);
+                        com.buddy.buddyapp.Constant.PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_error, "Please Check your credential and try again", Toast.LENGTH_SHORT);
                         loadingBar.setVisibility(View.GONE);
                     }
                 }
