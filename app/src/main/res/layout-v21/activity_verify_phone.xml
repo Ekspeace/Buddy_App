@@ -91,7 +91,7 @@
                         android:background="@drawable/input_design"
                         android:fontFamily="serif"
                         android:padding="4dp"
-                        android:text="Back To Sign Upq"
+                        android:text="Back To Sign Up"
                         android:textAllCaps="false"
                         android:textColor="@color/colorPrimary" />
 
