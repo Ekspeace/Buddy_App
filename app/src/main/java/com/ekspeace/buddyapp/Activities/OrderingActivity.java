@@ -48,6 +48,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 
@@ -143,7 +144,7 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
-                                if (!task.getResult().isEmpty()) {
+                                if (!Objects.requireNonNull(task.getResult()).isEmpty()) {
                                     for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                         Common.currentOrder = queryDocumentSnapshot.toObject(OrderInformation.class);
                                         Common.currentOrderId = queryDocumentSnapshot.getId();

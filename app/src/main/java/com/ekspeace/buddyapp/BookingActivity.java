@@ -46,6 +46,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import io.paperdb.Paper;
 
@@ -134,9 +135,8 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                             if (task.isSuccessful()) {
-                                if (!task.getResult().isEmpty()) {
+                                if (!Objects.requireNonNull(task.getResult()).isEmpty()) {
                                     for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                         Common.currentBooking = queryDocumentSnapshot.toObject(BookingInformation.class);
                                         Common.currentBookingId1 = queryDocumentSnapshot.getId();

@@ -70,7 +70,7 @@ public class OrderInfoAdapter extends RecyclerView.Adapter<OrderInfoAdapter.MyVi
                 Long.valueOf(timestamp.toDate().getTime()),
                 Calendar.getInstance().getTimeInMillis(),0).toString();
 
-        if(!dateRemain.contains("ago")) {
+        if(!dateRemain.contains("ago") && !dateRemain.contains("seconds") && !dateRemain.contains("minutes")) {
             userLoadOrder();
             DocumentReference userOrderInfo = FirebaseFirestore.getInstance()
                     .collection("users")

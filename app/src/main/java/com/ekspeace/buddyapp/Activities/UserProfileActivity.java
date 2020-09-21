@@ -37,6 +37,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class UserProfileActivity extends AppCompatActivity {
     private FirebaseUser user;
@@ -169,10 +170,11 @@ public class UserProfileActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            User usr = new User();
-                            usr.setName(task.getResult().get("name").toString());
-                            usr.setPhoneNumber(task.getResult().get("phoneNumber").toString());
-                            usr.setAddress(task.getResult().get("address").toString());
+                            User usr = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                            assert usr != null;
+                            usr.setName(usr.getName());
+                            usr.setPhoneNumber(usr.getPhoneNumber());
+                            usr.setAddress(usr.getAddress());
                             SetVariable(usr);
                             loadingbar.setVisibility(View.GONE);
                         }else{

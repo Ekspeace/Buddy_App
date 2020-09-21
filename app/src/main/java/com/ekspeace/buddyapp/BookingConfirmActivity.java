@@ -313,7 +313,7 @@ public class BookingConfirmActivity extends AppCompatActivity {
                 event.put(CalendarContract.Events.EVENT_TIMEZONE, timeZone);
 
                 Uri calendars;
-                if (Build.VERSION.SDK_INT > 8)
+                if (Build.VERSION.SDK_INT >= 17)
                     calendars = Uri.parse("content://com.android.calendar/events");
                 else
                     calendars = Uri.parse("content://calendar/events");
