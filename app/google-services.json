@@ -8,18 +8,71 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:178176233787:android:30853866a3347d841f271e",
+        "mobilesdk_app_id": "1:178176233787:android:464ac2b3c8cfaf231f271e",
         "android_client_info": {
-          "package_name": "com.buddy.buddyapp"
+          "package_name": "com.buddy.buddyadmin"
         }
       },
       "oauth_client": [
         {
-          "client_id": "178176233787-19diu82hpegt0h1f1c3jtriinef9p6u9.apps.googleusercontent.com",
+          "client_id": "178176233787-nobav1m6gthiqvi7bu0848vsb4pj0kh0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.buddy.buddyapp",
+            "package_name": "com.buddy.buddyadmin",
+            "certificate_hash": "c19bb2d8db7e5d67b54f2a7e661741aafd552fe4"
+          }
+        },
+        {
+          "client_id": "178176233787-ih2vtqlh56k1gld3v73f154osf0npre4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.buddy.buddyadmin",
             "certificate_hash": "491a14e48cee36aca3345e2508c2a20583db505e"
+          }
+        },
+        {
+          "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBALcIVvaO7boH97h9FOl-cAdOdyfEc_vI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "178176233787-jjfed7h2mt2ohm7r49a29ssgtuo0qibs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178176233787:android:9b79218ab9a10f7d1f271e",
+        "android_client_info": {
+          "package_name": "com.ekspeace.buddyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "178176233787-v4fkqtg5erpm5j1nmhodq9op0m3p62t1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ekspeace.buddyapp",
+            "certificate_hash": "491a14e48cee36aca3345e2508c2a20583db505e"
+          }
+        },
+        {
+          "client_id": "178176233787-nlsqmaugc26a358ds1viks3mbv9akq0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ekspeace.buddyapp",
+            "certificate_hash": "c19bb2d8db7e5d67b54f2a7e661741aafd552fe4"
           }
         },
         {

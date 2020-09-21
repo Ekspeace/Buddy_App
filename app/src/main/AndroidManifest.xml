@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:xmls="http://schemas.android.com/apk/distribution"
-    package="com.buddy.buddyapp">
+    package="com.ekspeace.buddyapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,61 +26,61 @@
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/Maps_API"/>
 
         <activity
-            android:name=".Activities.VerifyPhoneActivity"
+            android:name="com.ekspeace.buddyapp.Activities.VerifyPhoneActivity"
             android:noHistory="true" />
         <activity
-            android:name=".LibraryLicense"
+            android:name="com.ekspeace.buddyapp.LibraryLicense"
             android:label="Third Party Library" />
-        <activity android:name=".ResetPassword" />
+        <activity android:name="com.ekspeace.buddyapp.ResetPassword" />
         <activity
-            android:name=".AboutUs"
+            android:name="com.ekspeace.buddyapp.AboutUs"
             android:label="About Us" />
         <activity
-            android:name=".Activities.EditOrderActivity"
+            android:name="com.ekspeace.buddyapp.Activities.EditOrderActivity"
             android:label="Edit Order" />
         <activity
-            android:name=".Activities.ServicesActivity"
+            android:name="com.ekspeace.buddyapp.Activities.ServicesActivity"
             android:label=" " />
         <activity
-            android:name=".Activities.EmailActivity"
+            android:name="com.ekspeace.buddyapp.Activities.EmailActivity"
             android:label="Send Email" />
         <activity
-            android:name=".Activities.UserProfileActivity"
+            android:name="com.ekspeace.buddyapp.Activities.UserProfileActivity"
             android:label="User Profile" />
         <activity
-            android:name=".Activities.WelcomeActivity"
+            android:name="com.ekspeace.buddyapp.Activities.WelcomeActivity"
             android:label=" "
             android:noHistory="true" />
         <activity
-            android:name=".Activities.OrderingActivity"
+            android:name="com.ekspeace.buddyapp.Activities.OrderingActivity"
             android:label="Order Info" />
         <activity
-            android:name=".Activities.OrderConfirmActivity"
+            android:name="com.ekspeace.buddyapp.Activities.OrderConfirmActivity"
             android:label="Confirm Order" />
         <activity
-            android:name=".BookingConfirmActivity"
+            android:name="com.ekspeace.buddyapp.BookingConfirmActivity"
             android:label="Confirm Booking" />
         <activity
-            android:name=".TimeSlotActivity"
+            android:name="com.ekspeace.buddyapp.TimeSlotActivity"
             android:label="Booking Time Slots" />
         <activity
-            android:name=".BookingActivity"
+            android:name="com.ekspeace.buddyapp.BookingActivity"
             android:label="Booking Info" />
         <activity
-            android:name=".Services.PickUp"
+            android:name="com.ekspeace.buddyapp.Services.PickUp"
             android:label=" " />
         <activity
-            android:name=".Activities.MenuActivity"
+            android:name="com.ekspeace.buddyapp.Activities.MenuActivity"
             android:label=" " />
         <activity
-            android:name=".Activities.RegistrationActivity"
+            android:name="com.ekspeace.buddyapp.Activities.RegistrationActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Activities.LoginActivity"
+            android:name="com.ekspeace.buddyapp.Activities.LoginActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Activities.SplashActivity"
+            android:name="com.ekspeace.buddyapp.Activities.SplashActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
