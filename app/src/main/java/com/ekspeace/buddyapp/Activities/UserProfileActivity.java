@@ -20,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.ekspeace.buddyapp.AboutUs;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.Model.User;

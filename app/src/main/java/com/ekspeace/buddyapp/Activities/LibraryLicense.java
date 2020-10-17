@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ekspeace.buddyapp.Adapter.RecyclerViewLicenseAdapter;
 import com.ekspeace.buddyapp.Constant.PopUp;
+import com.ekspeace.buddyapp.R;
 import com.mikepenz.aboutlibraries.Libs;
 import com.mikepenz.aboutlibraries.entity.Library;
 

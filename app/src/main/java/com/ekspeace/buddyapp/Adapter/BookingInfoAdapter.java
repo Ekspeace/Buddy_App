@@ -66,31 +66,6 @@ public class BookingInfoAdapter extends RecyclerView.Adapter<BookingInfoAdapter.
         String dateRemain = DateUtils.getRelativeTimeSpanString(
                 Long.valueOf(bookinginfoList.get(position).getTimestamp().toDate().getTime()),
                 Calendar.getInstance().getTimeInMillis(),0).toString();
-        if(!dateRemain.contains("In")) {
-            DocumentReference userBookingInfo1 = FirebaseFirestore.getInstance()
-                    .collection("users")
-                    .document(Common.currentUser.getUserId())
-                    .collection(Booking(Common.currentBooking.getServiceName()))
-                    .document(BookingID(Common.currentBooking.getServiceName()));
-
-            userBookingInfo1.delete()
-            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Paper.init(context);
-                    Uri eventUri = Uri.parse(Paper.book().read(Common.EVENT_URI_CACHE).toString());
-                    context.getContentResolver().delete(eventUri, null, null);
-
-                }
-            });
-            DocumentReference BookingInfo = FirebaseFirestore.getInstance()
-                    .collection(Booking(Common.currentBooking.getServiceName()))
-                    .document("Slot")
-                    .collection(Common.convertTimeStampToStringKey(Common.currentBooking.getTimestamp()))
-                    .document(Common.currentBooking.getSlot().toString());
-            BookingInfo.delete();
-            bookinginfoList.remove(position);
-        }
             if (bookinginfoList.size() > 0) {
                 holder.card_booking_info.setVisibility(View.VISIBLE);
                 Intent intent = new Intent(Common.KEY_DISABLE_NO_BOOKING_TEXT);

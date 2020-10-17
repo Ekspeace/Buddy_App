@@ -55,7 +55,7 @@ public class TimeSlotAdapter extends RecyclerView.Adapter<TimeSlotAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         String startTime;
-        if (Common.currentService.getName().contains(" "))
+        if (Common.currentService.getName().equals("Car Wash"))
             startTime = Common.convertTimeToString(position);
         else
             startTime = Common.ConvertTimeToString(position);

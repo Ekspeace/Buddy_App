@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -27,6 +27,7 @@ import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.Constant.SpacesItemDecoration;
 import com.ekspeace.buddyapp.Interface.ITimeSlotLoadListener;
 import com.ekspeace.buddyapp.Model.TimeSlot;
+import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -120,7 +121,7 @@ public class TimeSlotActivity extends AppCompatActivity implements ITimeSlotLoad
     private void loadAvailableTimeSlot(String serviceId, final String bookDate) {
         dialog.setVisibility(View.VISIBLE);
         if (Common.isOnline(this)) {
-            if (Common.currentService.getName().contains(" ")) {
+            if (Common.currentService.getName().contains("W")) {
                 serviceDoc = FirebaseFirestore.getInstance()
                         .collection("Time_Slot_Car_Wash")
                         .document("Slot");
@@ -138,7 +139,7 @@ public class TimeSlotActivity extends AppCompatActivity implements ITimeSlotLoad
                         DocumentSnapshot documentSnapshot = task.getResult();
                         CollectionReference date;
                         if (documentSnapshot.exists()) {
-                            if (Common.currentService.getName().contains(" ")) {
+                            if (Common.currentService.getName().contains("W")) {
                                 date = FirebaseFirestore.getInstance()
                                         .collection("Time_Slot_Car_Wash")
                                         .document("Slot")

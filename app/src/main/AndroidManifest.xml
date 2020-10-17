@@ -29,15 +29,12 @@
             android:name="com.ekspeace.buddyapp.Activities.VerifyPhoneActivity"
             android:noHistory="true" />
         <activity
-            android:name="com.ekspeace.buddyapp.LibraryLicense"
+            android:name="com.ekspeace.buddyapp.Activities.LibraryLicense"
             android:label="Third Party Library" />
-        <activity android:name="com.ekspeace.buddyapp.ResetPassword" />
+        <activity android:name="com.ekspeace.buddyapp.Activities.ResetPassword" />
         <activity
-            android:name="com.ekspeace.buddyapp.AboutUs"
+            android:name="com.ekspeace.buddyapp.Activities.AboutUs"
             android:label="About Us" />
-        <activity
-            android:name="com.ekspeace.buddyapp.Activities.EditOrderActivity"
-            android:label="Edit Order" />
         <activity
             android:name="com.ekspeace.buddyapp.Activities.ServicesActivity"
             android:label=" " />
@@ -58,16 +55,16 @@
             android:name="com.ekspeace.buddyapp.Activities.OrderConfirmActivity"
             android:label="Confirm Order" />
         <activity
-            android:name="com.ekspeace.buddyapp.BookingConfirmActivity"
+            android:name="com.ekspeace.buddyapp.Activities.BookingConfirmActivity"
             android:label="Confirm Booking" />
         <activity
-            android:name="com.ekspeace.buddyapp.TimeSlotActivity"
+            android:name="com.ekspeace.buddyapp.Activities.TimeSlotActivity"
             android:label="Booking Time Slots" />
         <activity
-            android:name="com.ekspeace.buddyapp.BookingActivity"
+            android:name="com.ekspeace.buddyapp.Activities.BookingActivity"
             android:label="Booking Info" />
         <activity
-            android:name="com.ekspeace.buddyapp.Services.PickUp"
+            android:name="com.ekspeace.buddyapp.Model.PickUp"
             android:label=" " />
         <activity
             android:name="com.ekspeace.buddyapp.Activities.MenuActivity"

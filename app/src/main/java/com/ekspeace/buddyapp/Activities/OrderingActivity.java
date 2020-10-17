@@ -27,7 +27,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ekspeace.buddyapp.AboutUs;
 import com.ekspeace.buddyapp.Adapter.OrderInfoAdapter;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
@@ -73,14 +72,13 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
           loadUserOrders();
         }
     };
-    private Button btn_delete, btn_Edit;
+    private Button btn_delete;
     private final BroadcastReceiver deleteBookingInfo = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(Common.currentOrder != null) {
                 btn_delete.setEnabled(true);
-                btn_Edit.setEnabled(true);
-            }
+        }
         }
     };
     @Override
@@ -99,7 +97,6 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
         btn_delete = findViewById(R.id.btn_delete_ordering);
         no_order_txt = findViewById(R.id.no_order_txt);
         recyclerView = findViewById(R.id.recycler_order_info);
-        btn_Edit = findViewById(R.id.btn_Edit_ordering);
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
         dialog = findViewById(R.id.ProgressBar_order);
         localBroadcastManager.registerReceiver(NetworkError,new IntentFilter(Common.KEY_TRY));
@@ -113,12 +110,6 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
         loadUserOrders();
         initView();
         Actionbar();
-        btn_Edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(OrderingActivity.this, EditOrderActivity.class));
-            }
-        });
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

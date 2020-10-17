@@ -22,7 +22,6 @@ import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.Model.User;
 import com.ekspeace.buddyapp.R;
-import com.ekspeace.buddyapp.ResetPassword;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.app.Dialog;
 import android.content.BroadcastReceiver;
@@ -33,6 +33,7 @@ import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.Constant.SpacesItemDecoration;
 import com.ekspeace.buddyapp.Interface.IBookingInfoLoadListener;
 import com.ekspeace.buddyapp.Model.BookingInformation;
+import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

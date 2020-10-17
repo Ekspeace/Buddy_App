@@ -22,24 +22,17 @@ public class Common {
     public static final String KEY_DISPLAY_TIME_SLOT = "DISPLAY TIME SLOT";
     public static final Object DISABLE_TAG = "DISABLE";
     public static final String KEY_CONFIRM_BOOKING = "CONFIRM_BOOKING";
-    public static final String KEY_SERVICE_SELECTED = "SERVICE_SELECTED";
-    public static final String KEY_USER = "USER_SAVE";
-    public static final String KEY_CATEGORY_SELECTED = "CATEGORY_SELECTED";
     public static final String KEY_CLICKED_BUTTON_DELETE = "BUTTON_DELETE";
     public static final String KEY_DISABLE_NO_BOOKING_TEXT = "NO_BOOKING_TEXT";
     public static final String KEY_ENABLE_BUTTON_SERVICE = "BUTTON_SERVICE";
-    public static final String KEY_BOOKED = "BOOKED";
     public static final String KEY_DISABLE_NO_ORDER_TEXT = "NO_ORDER_TEXT" ;
     public static final String KEY_SLOT_BUTTON_NEXT = "SLOT_BUTTON" ;
     public static final String KEY_TRY = "KEY_TRY";
-    public static final String KEY_ENABLE_NO_ORDER_TEXT = "ORDER_TEXT" ;
     public static User currentUser;
     public static final String EVENT_URI_CACHE = "URI_EVENT_SAVE";
     public static final String KEY_TIME_SLOT = "TIME_SLOT";
     public static final String KEY_STEP = "STEP";
     public static int currentTimeSlot = -1;
-    public static int step = 0;
-    public static TimeSlot slot;
     public static Calendar currentDate = Calendar.getInstance();
     public static final SimpleDateFormat simpleDataFormat = new SimpleDateFormat("dd_MM_yyyy");
     public static Services currentService;
@@ -61,8 +54,6 @@ public class Common {
     public static OrderInformation currentOrder;
     public static String currentOrderId;
     public static final String UserEmailKey = "UserPassword";
-    public static String real_user_email;
-    public static String real_user_password;
     public static OrderInformation currentOrderInfo;
 
     public static String convertTimeToString(int slot) {

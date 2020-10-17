@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.ekspeace.buddyapp.AboutUs;
 import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.R;
 import com.google.android.material.textfield.TextInputLayout;

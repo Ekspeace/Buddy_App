@@ -22,10 +22,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.ekspeace.buddyapp.AboutUs;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
-import com.ekspeace.buddyapp.Email.GmailSender;
 import com.ekspeace.buddyapp.Model.OrderInformation;
 import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -41,6 +39,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Hashtable;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -131,7 +130,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
                 dialog.setVisibility(View.VISIBLE);
                 currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                final OrderInformation orderInformation = new OrderInformation();
+                OrderInformation orderInformation = new OrderInformation();
 
                 orderInformation.setCustomerName(Common.currentUser.getName());
                 orderInformation.setCustomerEmail(Common.currentUser.getEmail());
@@ -170,7 +169,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.getResult().size() < 1) {
+                            if (task.getResult().size() < 3) {
                                 userOrder.document()
                                         .set(orderInformation)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -178,7 +177,6 @@ public class OrderConfirmActivity extends AppCompatActivity {
                                             public void onSuccess(Void aVoid) {
                                                 RealTimeDatabase(orderInformation);
                                                 Notify();
-                                                sendSMSMessage();
                                                 dialog.setVisibility(View.GONE);
                                                 com.ekspeace.buddyapp.Constant.PopUp.smallToast(OrderConfirmActivity.this, layout, R.drawable.small_success,"Successfully Ordered!",Toast.LENGTH_SHORT);
                                                 startActivity(new Intent(OrderConfirmActivity.this, MenuActivity.class));
@@ -194,7 +192,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
                                         });
                             } else {
                                 dialog.setVisibility(View.GONE);
-                                com.ekspeace.buddyapp.Constant.PopUp.smallToast(OrderConfirmActivity.this, layout, R.drawable.small_error,"Sorry... but already ordered, Delete history orders",Toast.LENGTH_SHORT);
+                                com.ekspeace.buddyapp.Constant.PopUp.smallToast(OrderConfirmActivity.this, layout, R.drawable.small_error,"Sorry... but already ordered, Please Delete old orders",Toast.LENGTH_SHORT);
                                 startActivity(new Intent(OrderConfirmActivity.this, MenuActivity.class));
                                 finish();
                             }
@@ -258,24 +256,6 @@ public class OrderConfirmActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-    protected void sendSMSMessage() {
-        String subject = "Order Information";
-        String message = "The User " + Common.currentUser.getName() + " have ordered. Here is the Information" +
-                "\n\nService: " + Common.currentService.getName() + "\nCategory: " + Common.currentCategory.getCategoryName() +
-                "\nTime Ordered: " + currentTime;
-        if(Common.currentCategory.getCategoryName().contains("b")) {
-            message += "\nCannabis: " + Common.currentCannabis.getCannabisName() + "\nPrice: " + Common.currentCannabisPrice;
-        }
-        if(Common.currentCategory.getCategoryName().contains("G")) {
-            message += "\nShopping Store: " + Common.groceryStore + "\nShopping List: " + Common.groceryList;
-        }
-        if(Common.currentCategory.getCategoryName().contains("h")) {
-            message += "\nType of pick up: " + Common.otherType + "\nInformation about the pick up: " + Common.otherInfo;
-        }
-        message += "\n\nUser Information\nEmail: " + Common.currentUser.getEmail() + "\nPhone: " + Common.currentUser.getPhoneNumber() +
-                "\nAddress: " + Common.currentUser.getAddress();
-        GmailSender.GSender(message,subject);
     }
     private void RealTimeDatabase(OrderInformation orderInformation){
         CollectionReference userOrder = null;

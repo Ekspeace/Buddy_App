@@ -1,7 +1,7 @@
 package com.ekspeace.buddyapp.Model;
 
 public class TimeSlot {
-    private Long slot;
+    public Long slot;
 
     public TimeSlot(){
 

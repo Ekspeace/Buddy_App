@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.ekspeace.buddyapp.Constant.PopUp;
+import com.ekspeace.buddyapp.R;
 
 import mehdi.sakout.aboutpage.BuildConfig;
 

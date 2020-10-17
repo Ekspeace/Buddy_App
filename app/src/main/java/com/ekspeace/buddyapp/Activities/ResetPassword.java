@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -16,9 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.ekspeace.buddyapp.Activities.LoginActivity;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
+import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;

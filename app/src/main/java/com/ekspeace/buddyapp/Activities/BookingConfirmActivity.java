@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp;
+package com.ekspeace.buddyapp.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -29,11 +29,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.ekspeace.buddyapp.Activities.MenuActivity;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
-import com.ekspeace.buddyapp.Email.GmailSender;
 import com.ekspeace.buddyapp.Model.BookingInformation;
+import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -226,7 +225,6 @@ public class BookingConfirmActivity extends AppCompatActivity {
                                 set(bookingInformation);
                                 RealTimeDatabase(bookingInformation);
                                 Notify();
-                                sendSMSMessage();
                                 dialog.setVisibility(View.GONE);
                                 if (Common.currentService.getName().contains(" "))
                                     addToCalendar(Common.currentDate,
@@ -239,7 +237,7 @@ public class BookingConfirmActivity extends AppCompatActivity {
                                 finish();
                             } else {
                                 dialog.setVisibility(View.GONE);
-                                com.ekspeace.buddyapp.Constant.PopUp.smallToast(BookingConfirmActivity.this, layout, R.drawable.small_error,"Sorry... but already booked for this service",Toast.LENGTH_SHORT);
+                                com.ekspeace.buddyapp.Constant.PopUp.smallToast(BookingConfirmActivity.this, layout, R.drawable.small_error,"Sorry... but already booked for this service, Please delete history bookings",Toast.LENGTH_SHORT);
                                 startActivity(new Intent(BookingConfirmActivity.this, MenuActivity.class));
                                 finish();
                             }
@@ -409,18 +407,6 @@ public class BookingConfirmActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
-    protected void sendSMSMessage() {
-        String subject = "Booking Information";
-        String message = "The User " + Common.currentUser.getName() + " had booked a service. Here is the Information" +
-                "\n\nService: " + Common.currentService.getName() + "\nCategory: " + Common.currentCategory.getCategoryName() +
-                "\nTime And Date: " + new StringBuilder(Common.convertTimeToString(Common.currentTimeSlot))
-                .append(" at ")
-                .append(simpleDateFormat.format(Common.currentDate.getTime())).toString() +
-                "\nPrice: " + Common.currentCategory.getCategoryPrice() +
-       "\n\nUser Information\nEmail: " + Common.currentUser.getEmail() + "\nPhone: " + Common.currentUser.getPhoneNumber() +
-                "\nAddress: " + Common.currentUser.getAddress();
-        GmailSender.GSender(message,subject);
     }
     private void RealTimeDatabase(BookingInformation bookingInformation){
             CollectionReference userBooking = null;

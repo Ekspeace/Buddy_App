@@ -67,27 +67,9 @@ public class OrderInfoAdapter extends RecyclerView.Adapter<OrderInfoAdapter.MyVi
 
         Timestamp timestamp = new Timestamp(bookingDateWithoutHouse.getTime());
         String dateRemain = DateUtils.getRelativeTimeSpanString(
-                Long.valueOf(timestamp.toDate().getTime()),
+                timestamp.toDate().getTime(),
                 Calendar.getInstance().getTimeInMillis(),0).toString();
 
-        if(!dateRemain.contains("ago") && !dateRemain.contains("seconds") && !dateRemain.contains("minutes")) {
-            userLoadOrder();
-            DocumentReference userOrderInfo = FirebaseFirestore.getInstance()
-                    .collection("users")
-                    .document(Common.currentUser.getUserId())
-                    .collection("Orders")
-                    .document(Common.currentOrderId);
-            userOrderInfo.delete()
-            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Paper.init(context);
-                    Uri eventUri = Uri.parse(Paper.book().read(Common.EVENT_URI_CACHE).toString());
-                    context.getContentResolver().delete(eventUri, null, null);
-                }
-            });
-            orderInformationList.remove(position);
-        }
             if (orderInformationList.size() > 0) {
                 holder.card_order_info.setVisibility(View.VISIBLE);
                 Intent intent = new Intent(Common.KEY_DISABLE_NO_ORDER_TEXT);

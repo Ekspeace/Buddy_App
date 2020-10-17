@@ -1,4 +1,4 @@
-package com.ekspeace.buddyapp.Services;
+package com.ekspeace.buddyapp.Model;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -22,13 +22,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-import com.ekspeace.buddyapp.AboutUs;
+import com.ekspeace.buddyapp.Activities.AboutUs;
 import com.ekspeace.buddyapp.Activities.OrderConfirmActivity;
 import com.ekspeace.buddyapp.Constant.Common;
 import com.ekspeace.buddyapp.Constant.PopUp;
 import com.ekspeace.buddyapp.Interface.IServiceLoadListener;
-import com.ekspeace.buddyapp.Model.Cannabis;
-import com.ekspeace.buddyapp.Model.Category;
 import com.ekspeace.buddyapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
