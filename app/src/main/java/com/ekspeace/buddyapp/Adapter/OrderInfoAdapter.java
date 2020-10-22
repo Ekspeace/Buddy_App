@@ -37,6 +37,7 @@ import io.paperdb.Paper;
 
 public class OrderInfoAdapter extends RecyclerView.Adapter<OrderInfoAdapter.MyViewHolder>  {
 
+    private static final String POSITION = "position";
     final Context context;
     final List<OrderInformation> orderInformationList;
     final List<CardView> cardViewList;
@@ -110,6 +111,7 @@ public class OrderInfoAdapter extends RecyclerView.Adapter<OrderInfoAdapter.MyVi
                         userLoadOrder();
                         Common.currentOrder = new OrderInformation(orderInformationList.get(position).getServicename());
                         Common.categoryEdit = orderInformationList.get(position).getCategoryname();
+                        Common.OrderPosition = pos;
                         Intent intent = new Intent(Common.KEY_CLICKED_BUTTON_DELETE);
                         localBroadcastManager.sendBroadcast(intent);
                     }

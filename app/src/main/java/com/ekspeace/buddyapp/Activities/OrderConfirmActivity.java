@@ -31,15 +31,19 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import org.w3c.dom.Document;
 
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -130,35 +134,35 @@ public class OrderConfirmActivity extends AppCompatActivity {
                 dialog.setVisibility(View.VISIBLE);
                 currentTime = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date());
                 String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-                OrderInformation orderInformation = new OrderInformation();
+                HashMap<String, Object> orderInformation = new HashMap<>();
 
-                orderInformation.setCustomerName(Common.currentUser.getName());
-                orderInformation.setCustomerEmail(Common.currentUser.getEmail());
-                orderInformation.setCustomerPhone(Common.currentUser.getPhoneNumber());
-                orderInformation.setCustomerAddress(Common.currentUser.getAddress());
-                orderInformation.setServiceId(Common.currentService.getServiceId());
-                orderInformation.setCategoryname(Common.currentCategory.getCategoryName());
-                orderInformation.setServicename(Common.currentService.getName());
-                orderInformation.setDate(currentDate);
-                orderInformation.setTime(currentTime);
+                orderInformation.put("CustomerName",Common.currentUser.getName());
+                orderInformation.put("CustomerEmail",Common.currentUser.getEmail());
+                orderInformation.put("CustomerPhone",Common.currentUser.getPhoneNumber());
+                orderInformation.put("CustomerAddress",Common.currentUser.getAddress());
+                orderInformation.put("ServiceId",Common.currentService.getServiceId());
+                orderInformation.put("CategoryName",Common.currentCategory.getCategoryName());
+                orderInformation.put("ServiceName",Common.currentService.getName());
+                orderInformation.put("Date",currentDate);
+                orderInformation.put("Time",currentTime);
                 if(Common.currentCategory.getCategoryName().contains("b")) {
-                    orderInformation.setCannabisName(Common.currentCannabis.getCannabisName());
-                    orderInformation.setCannabisPrice(Common.currentCannabisPrice);
+                    orderInformation.put("CannabisName",Common.currentCannabis.getCannabisName());
+                    orderInformation.put("CannabisPrice",Common.currentCannabisPrice);
                 }
                 if(Common.currentCategory.getCategoryName().contains("G")) {
-                   orderInformation.setGroceryList(Common.groceryList);
-                   orderInformation.setGroceryStore(Common.groceryStore);
+                   orderInformation.put("GroceryList",Common.groceryList);
+                   orderInformation.put("GroceryStore",Common.groceryStore);
                 }
                 if(Common.currentCategory.getCategoryName().contains("h")) {
-                    orderInformation.setOtherInfo(Common.otherInfo);
-                    orderInformation.setOtherType(Common.otherType);
+                    orderInformation.put("OtherInfo",Common.otherInfo);
+                    orderInformation.put("OtherType",Common.otherType);
                 }
                 Common.currentOrderInfo = orderInformation;
                 addToUserOrder(orderInformation);
             }
         });
     }
-    private void addToUserOrder(final OrderInformation orderInformation) {
+    private void addToUserOrder(final HashMap<String, Object> orderInformation) {
         if (Common.isOnline(this)) {
             final CollectionReference userOrder = FirebaseFirestore.getInstance()
                     .collection("users")
@@ -170,12 +174,13 @@ public class OrderConfirmActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.getResult().size() < 3) {
-                                userOrder.document()
+                                String Id = userOrder.document().getId();
+                                RealTimeDatabase(orderInformation, Id);
+                                userOrder.document(Id)
                                         .set(orderInformation)
                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                             @Override
                                             public void onSuccess(Void aVoid) {
-                                                RealTimeDatabase(orderInformation);
                                                 Notify();
                                                 dialog.setVisibility(View.GONE);
                                                 com.ekspeace.buddyapp.Constant.PopUp.smallToast(OrderConfirmActivity.this, layout, R.drawable.small_success,"Successfully Ordered!",Toast.LENGTH_SHORT);
@@ -257,11 +262,11 @@ public class OrderConfirmActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void RealTimeDatabase(OrderInformation orderInformation){
-        CollectionReference userOrder = null;
-        userOrder = FirebaseFirestore.getInstance()
-                .collection("Orders");
-        userOrder.document().set(orderInformation);
+    private void RealTimeDatabase(HashMap<String, Object> orderInformation, String Id){
+        CollectionReference userOrder = FirebaseFirestore.getInstance().collection("Orders");
+        orderInformation.put("OrderId", Id);
+        userOrder.document(Id).set(orderInformation);
+        orderInformation.put("OrderId", Id);
     }
     private void Notify(){
         AsyncTask.execute(new Runnable() {

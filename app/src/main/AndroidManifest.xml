@@ -4,7 +4,7 @@
     xmlns:xmls="http://schemas.android.com/apk/distribution"
     package="com.ekspeace.buddyapp">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.SEND_SMS" />
@@ -23,61 +23,69 @@
         android:roundIcon="@mipmap/ic_launcher_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="@string/Maps_API"/>
+        <activity android:name=".Activities.EditOrderActivity"
+                    android:label="Edit Order"
+                     android:noHistory="true"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/Maps_API" />
 
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.VerifyPhoneActivity"
+            android:name=".Activities.VerifyPhoneActivity"
             android:noHistory="true" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.LibraryLicense"
+            android:name=".Activities.LibraryLicense"
             android:label="Third Party Library" />
-        <activity android:name="com.ekspeace.buddyapp.Activities.ResetPassword" />
+        <activity android:name=".Activities.ResetPassword" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.AboutUs"
+            android:name=".Activities.AboutUs"
             android:label="About Us" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.ServicesActivity"
+            android:name=".Activities.ServicesActivity"
             android:label=" " />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.EmailActivity"
+            android:name=".Activities.EmailActivity"
             android:label="Send Email" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.UserProfileActivity"
+            android:name=".Activities.UserProfileActivity"
             android:label="User Profile" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.WelcomeActivity"
+            android:name=".Activities.WelcomeActivity"
             android:label=" "
             android:noHistory="true" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.OrderingActivity"
-            android:label="Order Info" />
+            android:name=".Activities.OrderingActivity"
+            android:label="Order Info"
+            android:noHistory="true"/>
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.OrderConfirmActivity"
+            android:name=".Activities.OrderConfirmActivity"
             android:label="Confirm Order" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.BookingConfirmActivity"
+            android:name=".Activities.BookingConfirmActivity"
             android:label="Confirm Booking" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.TimeSlotActivity"
+            android:name=".Activities.TimeSlotActivity"
             android:label="Booking Time Slots" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.BookingActivity"
-            android:label="Booking Info" />
+            android:name=".Activities.BookingActivity"
+            android:label="Booking Info"
+            android:noHistory="true"/>
         <activity
-            android:name="com.ekspeace.buddyapp.Model.PickUp"
+            android:name=".Model.PickUp"
             android:label=" " />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.MenuActivity"
+            android:name=".Activities.MenuActivity"
             android:label=" " />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.RegistrationActivity"
+            android:name=".Activities.RegistrationActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.LoginActivity"
+            android:name=".Activities.LoginActivity"
             android:noHistory="true"
             android:theme="@style/AppTheme" />
         <activity
-            android:name="com.ekspeace.buddyapp.Activities.SplashActivity"
+            android:name=".Activities.SplashActivity"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

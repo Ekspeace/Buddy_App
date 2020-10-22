@@ -31,6 +31,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+
 import io.paperdb.Paper;
 
 public class RegistrationActivity extends AppCompatActivity {
@@ -127,7 +129,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     Paper.book().destroy();
                     userID = mAuth.getCurrentUser().getUid();
                     DocumentReference documentReference = mStore.collection("users").document(userID);
-                    User user = new User(userID, Name, Address, Phone, email, password);
+                    HashMap<String,Object> user = new HashMap<>();
+                    user.put("userId", userID);
+                    user.put("name", Name);
+                    user.put("address", Address);
+                    user.put("phone", Phone);
+                    user.put("email", email);
+                    user.put("password", password);
                     documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {

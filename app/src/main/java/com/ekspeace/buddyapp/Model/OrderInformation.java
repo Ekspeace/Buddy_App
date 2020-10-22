@@ -15,11 +15,20 @@ public class OrderInformation {
     private String customerEmail;
     private String cannabisName;
     private String cannabisPrice;
+    private String orderId;
 
     private Timestamp timestamp;
     private boolean done;
 
     public OrderInformation() {
+    }
+
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
     }
 
     public OrderInformation(String servicename) {

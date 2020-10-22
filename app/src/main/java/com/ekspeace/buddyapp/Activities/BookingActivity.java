@@ -38,9 +38,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -80,6 +82,8 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
           loadUserBooking();
         }
     };
+    private List<BookingInformation> InformationList;
+
     @Override
     public void onResume() {
         super.onResume();
@@ -140,10 +144,11 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
                                 if (!Objects.requireNonNull(task.getResult()).isEmpty()) {
                                     for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                         Common.currentBooking = queryDocumentSnapshot.toObject(BookingInformation.class);
-                                        Common.currentBookingId1 = queryDocumentSnapshot.getId();
                                         bookingInformationList.add(Common.currentBooking);
-                                        iBookingInfoLoadListener.onBookingInfoLoadSuccess(bookingInformationList);
+                                        AssignBooking(Common.currentBooking, queryDocumentSnapshot);
                                     }
+                                    InformationList = bookingInformationList;
+                                    iBookingInfoLoadListener.onBookingInfoLoadSuccess(bookingInformationList);
                                     dialog.setVisibility(View.GONE);
                                 }
 
@@ -165,17 +170,17 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                             if (task.isSuccessful()) {
                                 if (!task.getResult().isEmpty()) {
-
                                     for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                         Common.currentBooking = queryDocumentSnapshot.toObject(BookingInformation.class);
-                                        Common.currentBookingId2 = queryDocumentSnapshot.getId();
                                         bookingInformationList.add(Common.currentBooking);
-                                        iBookingInfoLoadListener.onBookingInfoLoadSuccess(bookingInformationList);
+                                        AssignBooking(Common.currentBooking, queryDocumentSnapshot);
+
                                     }
                                 }
+                                InformationList = bookingInformationList;
+                                iBookingInfoLoadListener.onBookingInfoLoadSuccess(bookingInformationList);
                                 dialog.setVisibility(View.GONE);
                             }
                         }
@@ -191,6 +196,20 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
             PopUp.Toast(this, "Connection...", "Please check your internet connectivity and try again", R.drawable.error);
 
         }
+    }
+    private void AssignBooking(BookingInformation bookingInformation, DocumentSnapshot documentSnapshot) {
+        bookingInformation.setCustomerName(documentSnapshot.get("CustomerName").toString());
+        bookingInformation.setCustomerEmail(documentSnapshot.get("CustomerEmail").toString());
+        bookingInformation.setCustomerPhone(documentSnapshot.get("PhoneNumber").toString());
+        bookingInformation.setCustomerAddress(documentSnapshot.get("CustomerAddress").toString());
+
+        bookingInformation.setServiceName(documentSnapshot.get("ServiceName").toString());
+        bookingInformation.setCategoryName(documentSnapshot.get("CategoryName").toString());
+        bookingInformation.setTimestamp((Timestamp) documentSnapshot.get("timestamp"));
+        bookingInformation.setSlot(documentSnapshot.getLong("TimeSlot"));
+        bookingInformation.setTime(documentSnapshot.get("Time").toString());
+        bookingInformation.setBookingId(documentSnapshot.get("BookingId").toString());
+        bookingInformation.setPrice(documentSnapshot.get("CategoryPrice").toString());
     }
     private void initView() {
         recyclerView.setHasFixedSize(true);
@@ -297,7 +316,7 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
                     .collection("users")
                     .document(mAuth.getCurrentUser().getUid())
                     .collection(BookingService(Common.currentBooking.getServiceName()))
-                    .document(Common.currentBookingId);
+                    .document(InformationList.get(Common.BookPosition).getBookingId());
 
             userBookingInfo1.delete().addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -313,6 +332,9 @@ public class BookingActivity extends AppCompatActivity implements IBookingInfoLo
                     BookingActivity.this.getContentResolver().delete(eventUri, null, null);
                     dialog.setVisibility(View.GONE);
                     com.ekspeace.buddyapp.Constant.PopUp.smallToast(BookingActivity.this, layout, R.drawable.small_success,"Successfully deleted the booking !",Toast.LENGTH_SHORT);
+                    DocumentReference userOrder = FirebaseFirestore.getInstance()
+                            .collection("Booking").document(InformationList.get(Common.BookPosition).getBookingId());
+                    userOrder.delete();
                     BookingActivity.this.recreate();
 
                 }

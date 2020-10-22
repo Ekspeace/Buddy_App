@@ -50,6 +50,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.TimeZone;
 
@@ -108,26 +110,26 @@ public class BookingConfirmActivity extends AppCompatActivity {
             bookingDateWithoutHouse.set(Calendar.MINUTE, startMinInt);
 
             Timestamp timestamp = new Timestamp(bookingDateWithoutHouse.getTime());
-            final BookingInformation bookingInformation = new BookingInformation();
+            final HashMap<String,Object> bookingInformation = new HashMap<>();
 
-            bookingInformation.setTimestamp(timestamp);
-            bookingInformation.setCustomerName(Common.currentUser.getName());
-            bookingInformation.setCustomerEmail(Common.currentUser.getEmail());
-            bookingInformation.setCustomerPhone(Common.currentUser.getPhoneNumber());
-            bookingInformation.setCustomerAddress(Common.currentUser.getAddress());
-            bookingInformation.setServiceId(Common.currentService.getServiceId());
-            bookingInformation.setCategoryName(Common.currentCategory.getCategoryName());
-            bookingInformation.setServiceName(Common.currentService.getName());
-            bookingInformation.setPrice(Common.currentCategory.getCategoryPrice());
+            bookingInformation.put("timestamp",timestamp);
+            bookingInformation.put("CustomerName", Common.currentUser.getName());
+            bookingInformation.put("CustomerEmail",Common.currentUser.getEmail());
+            bookingInformation.put("PhoneNumber",Common.currentUser.getPhoneNumber());
+            bookingInformation.put("CustomerAddress",Common.currentUser.getAddress());
+            bookingInformation.put("ServiceId",Common.currentService.getServiceId());
+            bookingInformation.put("CategoryName",Common.currentCategory.getCategoryName());
+            bookingInformation.put("ServiceName",Common.currentService.getName());
+            bookingInformation.put("CategoryPrice",Common.currentCategory.getCategoryPrice());
             if (Common.currentService.getName().contains(" "))
-                bookingInformation.setTime(new StringBuilder(Common.convertTimeToString(Common.currentTimeSlot))
+                bookingInformation.put("Time",new StringBuilder(Common.convertTimeToString(Common.currentTimeSlot))
                         .append(" at ")
                         .append(simpleDateFormat.format(Common.currentDate.getTime())).toString());
             else
-                bookingInformation.setTime(new StringBuilder(Common.ConvertTimeToString(Common.currentTimeSlot))
+                bookingInformation.put("Time",new StringBuilder(Common.ConvertTimeToString(Common.currentTimeSlot))
                         .append(" at ")
                         .append(simpleDateFormat.format(Common.currentDate.getTime())).toString());
-            bookingInformation.setSlot(Long.valueOf(Common.currentTimeSlot));
+            bookingInformation.put("TimeSlot",(long) Common.currentTimeSlot);
             DocumentReference bookingDate;
 
             if (Common.currentService.getName().contains(" ")) {
@@ -193,7 +195,7 @@ public class BookingConfirmActivity extends AppCompatActivity {
 
     }
 
-    private void addToUserBooking(final BookingInformation bookingInformation) {
+    private void addToUserBooking(final HashMap<String, Object> bookingInformation) {
         if (Common.isOnline(this)) {
             final CollectionReference userBooking;
             if (Common.currentService.getName().contains(" ")) {
@@ -221,9 +223,10 @@ public class BookingConfirmActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.getResult().isEmpty()) {
-                                userBooking.document().
+                                String Id = userBooking.document().getId();
+                                RealTimeDatabase(bookingInformation, Id);
+                                userBooking.document(Id).
                                 set(bookingInformation);
-                                RealTimeDatabase(bookingInformation);
                                 Notify();
                                 dialog.setVisibility(View.GONE);
                                 if (Common.currentService.getName().contains(" "))
@@ -408,14 +411,11 @@ public class BookingConfirmActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-    private void RealTimeDatabase(BookingInformation bookingInformation){
-            CollectionReference userBooking = null;
-        userBooking = FirebaseFirestore.getInstance()
-        .collection("Booking");
-        userBooking.document();
-        bookingInformation.setBookingId(userBooking.getId());
-        userBooking.add(bookingInformation);
-
+    private void RealTimeDatabase(HashMap<String, Object> bookingInformation, String Id){
+        CollectionReference userBooking = FirebaseFirestore.getInstance().collection("Booking");
+        bookingInformation.put("BookingId",Id);
+        userBooking.document(Id).set(bookingInformation);
+        bookingInformation.put("BookingId",Id);
     }
     private void Notify(){
         AsyncTask.execute(new Runnable() {
@@ -431,7 +431,7 @@ public class BookingConfirmActivity extends AppCompatActivity {
                             .permitAll().build();
 
                     StrictMode.setThreadPolicy(policy);
-                  //  String message = "Buddy User have booked your service";
+                    String message = "User name: " + Common.currentUser.getName();
 
                     try {
                         String jsonResponse;

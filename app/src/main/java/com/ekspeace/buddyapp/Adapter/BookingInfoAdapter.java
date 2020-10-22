@@ -91,6 +91,7 @@ public class BookingInfoAdapter extends RecyclerView.Adapter<BookingInfoAdapter.
 
                         );
                         UserLoadBooking(position);
+                        Common.BookPosition = pos;
                         Common.currentBooking = new BookingInformation(bookinginfoList.get(position).getServiceName(), bookinginfoList.get(position).getSlot(), bookinginfoList.get(position).getTimestamp());
                         Intent intent = new Intent(Common.KEY_CLICKED_BUTTON_DELETE);
                         localBroadcastManager.sendBroadcast(intent);
@@ -109,14 +110,12 @@ public class BookingInfoAdapter extends RecyclerView.Adapter<BookingInfoAdapter.
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-
                         if (task.isSuccessful())
                         {
                             for (QueryDocumentSnapshot queryDocumentSnapshot:task.getResult())
                             {
                                 Common.currentBookingId = queryDocumentSnapshot.getId();
                             }
-
                         }
                     }
                 });
@@ -127,19 +126,7 @@ public class BookingInfoAdapter extends RecyclerView.Adapter<BookingInfoAdapter.
            return "Booking_Car_Wash";
         else
             return "Booking_Cleaning";
-
     }
-    public String BookingID(String name)
-    {
-        if(name.contains(" "))
-            return Common.currentBookingId1;
-        else
-            return Common.currentBookingId2;
-
-    }
-
-
-
 
     @Override
     public int getItemCount() {

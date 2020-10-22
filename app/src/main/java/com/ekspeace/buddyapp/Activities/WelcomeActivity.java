@@ -79,11 +79,18 @@ public class WelcomeActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()) {
-                            Common.currentUser = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                            User user = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                            assert user != null;
+                            user.setName(task.getResult().get("name").toString());
+                            user.setEmail(task.getResult().get("email").toString());
+                            user.setPassword(task.getResult().get("password").toString());
+                            user.setPhoneNumber(task.getResult().get("phone").toString());
+                            user.setAddress(task.getResult().get("address").toString());
+                            user.setUserId(task.getResult().get("userId").toString());
+                            Common.currentUser = user;
                             loadingBar.setVisibility(View.GONE);
                         }
                     }
-
                 });
             }else{
                 loadingBar.setVisibility(View.GONE);

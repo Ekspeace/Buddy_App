@@ -119,7 +119,7 @@ public class UserProfileActivity extends AppCompatActivity {
                                 user.put("userId", userID);
                                 user.put("name", Name);
                                 user.put("address", Address);
-                                user.put("phoneNumber", Phone);
+                                user.put("phone", Phone);
                                 user.put("email", email);
                                 user.put("password", password);
                                 documentReference.update(user).addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -139,7 +139,15 @@ public class UserProfileActivity extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                         if (task.isSuccessful()) {
-                                            Common.currentUser = task.getResult().toObject(User.class);
+                                            User user = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                                            assert user != null;
+                                            user.setName(task.getResult().get("name").toString());
+                                            user.setEmail(task.getResult().get("email").toString());
+                                            user.setPassword(task.getResult().get("password").toString());
+                                            user.setPhoneNumber(task.getResult().get("phone").toString());
+                                            user.setAddress(task.getResult().get("address").toString());
+                                            user.setUserId(task.getResult().get("userId").toString());
+                                            Common.currentUser = user;
                                             startActivity(new Intent(UserProfileActivity.this, MenuActivity.class));
                                             loadingbar.setVisibility(View.GONE);
                                         }
@@ -171,9 +179,9 @@ public class UserProfileActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             User usr = Objects.requireNonNull(task.getResult()).toObject(User.class);
                             assert usr != null;
-                            usr.setName(usr.getName());
-                            usr.setPhoneNumber(usr.getPhoneNumber());
-                            usr.setAddress(usr.getAddress());
+                            usr.setName(task.getResult().get("name").toString());
+                            usr.setPhoneNumber(task.getResult().get("phone").toString());
+                            usr.setAddress(task.getResult().get("address").toString());
                             SetVariable(usr);
                             loadingbar.setVisibility(View.GONE);
                         }else{

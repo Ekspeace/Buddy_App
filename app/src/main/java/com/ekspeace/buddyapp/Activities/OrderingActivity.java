@@ -41,11 +41,15 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.w3c.dom.Document;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -60,10 +64,11 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
     private LinearLayout no_order_txt;
     private IOrderInfoLoadListener iOrderInfoLoadListener;
     private View layout;
+    private List<OrderInformation> InformationList;
     private final BroadcastReceiver setVisibilityOfText = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-                no_order_txt.setVisibility(View.VISIBLE);
+                no_order_txt.setVisibility(View.GONE);
         }
     };
     private final BroadcastReceiver NetworkError = new BroadcastReceiver() {
@@ -72,12 +77,13 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
           loadUserOrders();
         }
     };
-    private Button btn_delete;
+    private Button btn_delete, btn_Edit;
     private final BroadcastReceiver deleteBookingInfo = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             if(Common.currentOrder != null) {
                 btn_delete.setEnabled(true);
+                btn_Edit.setEnabled(true);
         }
         }
     };
@@ -95,6 +101,7 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
 
         toolbar = findViewById(R.id.toolbarOrder);
         btn_delete = findViewById(R.id.btn_delete_ordering);
+        btn_Edit = findViewById(R.id.btn_Edit_ordering);
         no_order_txt = findViewById(R.id.no_order_txt);
         recyclerView = findViewById(R.id.recycler_order_info);
         LocalBroadcastManager localBroadcastManager = LocalBroadcastManager.getInstance(this);
@@ -110,6 +117,12 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
         loadUserOrders();
         initView();
         Actionbar();
+        btn_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(OrderingActivity.this, EditOrderActivity.class));
+            }
+        });
         btn_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,10 +151,11 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
                                 if (!Objects.requireNonNull(task.getResult()).isEmpty()) {
                                     for (QueryDocumentSnapshot queryDocumentSnapshot : task.getResult()) {
                                         Common.currentOrder = queryDocumentSnapshot.toObject(OrderInformation.class);
-                                        Common.currentOrderId = queryDocumentSnapshot.getId();
                                         orderInformationList.add(Common.currentOrder);
-                                        iOrderInfoLoadListener.onOrderInfoLoadSuccess(orderInformationList);
+                                        AssignOrder(Common.currentOrder,queryDocumentSnapshot);
                                     }
+                                    iOrderInfoLoadListener.onOrderInfoLoadSuccess(orderInformationList);
+                                    InformationList = orderInformationList;
                                 }
                                 dialog.setVisibility(View.GONE);
                             }
@@ -214,6 +228,31 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
     }
+    private void AssignOrder(OrderInformation orderInformation, DocumentSnapshot documentSnapshot) {
+        orderInformation.setCustomerName(documentSnapshot.get("CustomerName").toString());
+        orderInformation.setCustomerEmail(documentSnapshot.get("CustomerEmail").toString());
+        orderInformation.setCustomerPhone(documentSnapshot.get("CustomerPhone").toString());
+        orderInformation.setCustomerAddress(documentSnapshot.get("CustomerAddress").toString());
+        orderInformation.setServiceId(documentSnapshot.get("ServiceId").toString());
+        orderInformation.setCategoryname(documentSnapshot.get("CategoryName").toString());
+        orderInformation.setServicename(documentSnapshot.get("ServiceName").toString());
+        orderInformation.setDate(documentSnapshot.get("Date").toString());
+        orderInformation.setTime(documentSnapshot.get("Time").toString());
+        orderInformation.setOrderId(documentSnapshot.get("OrderId").toString());
+        if(orderInformation.getCategoryname().contains("b")) {
+            orderInformation.setCannabisName(documentSnapshot.get("CannabisName").toString());
+            orderInformation.setCannabisPrice(documentSnapshot.get("CannabisPrice").toString());
+        }
+        if(orderInformation.getCategoryname().contains("G")) {
+            orderInformation.setGroceryList(documentSnapshot.get("GroceryList").toString());
+            orderInformation.setGroceryStore(documentSnapshot.get("GroceryStore").toString());
+        }
+        if(orderInformation.getCategoryname().contains("h")) {
+            orderInformation.setOtherInfo(documentSnapshot.get("OtherInfo").toString());
+            orderInformation.setOtherType(documentSnapshot.get("OtherType").toString());
+        }
+      // Common.currentOrder = orderInformation;
+    }
     private void deleteOrderFromUser() {
         dialog.setVisibility(View.VISIBLE);
         if (Common.isOnline(this)) {
@@ -221,7 +260,7 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
                     .collection("users")
                     .document(Common.currentUser.getUserId())
                     .collection("Orders")
-                    .document(Common.currentOrderId);
+                    .document(InformationList.get(Common.OrderPosition).getOrderId());
 
             userOrderInfo.delete().addOnFailureListener(new OnFailureListener() {
                 @Override
@@ -233,10 +272,13 @@ public class OrderingActivity extends AppCompatActivity implements IOrderInfoLoa
                 @Override
                 public void onSuccess(Void aVoid) {
                     Paper.init(OrderingActivity.this);
-                    Uri eventUri = Uri.parse(Paper.book().read(Common.EVENT_URI_CACHE).toString());
-                    OrderingActivity.this.getContentResolver().delete(eventUri, null, null);
+                //    Uri eventUri = Uri.parse(Paper.book().read(Common.EVENT_URI_CACHE).toString());
+                 //   OrderingActivity.this.getContentResolver().delete(eventUri, null, null);
                     dialog.setVisibility(View.GONE);
                     com.ekspeace.buddyapp.Constant.PopUp.smallToast(OrderingActivity.this, layout, R.drawable.small_success, "Successfully deleted the order!",Toast.LENGTH_SHORT);
+                    DocumentReference userOrder = FirebaseFirestore.getInstance()
+                            .collection("Orders").document(InformationList.get(Common.OrderPosition).getOrderId());
+                    userOrder.delete();
                     OrderingActivity.this.recreate();
 
                 }

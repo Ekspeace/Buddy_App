@@ -164,7 +164,18 @@ public class LoginActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                                     if (task.isSuccessful()) {
-                                        Common.currentUser = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                                        User user = Objects.requireNonNull(task.getResult()).toObject(User.class);
+                                        assert user != null;
+                                        user.setName(task.getResult().get("name").toString());
+                                        user.setEmail(task.getResult().get("email").toString());
+                                        user.setPassword(task.getResult().get("password").toString());
+                                        user.setPhoneNumber(task.getResult().get("phone").toString());
+                                        user.setAddress(task.getResult().get("address").toString());
+                                        user.setUserId(task.getResult().get("userId").toString());
+                                        if(!User_Password.equals(user.getPassword())){
+                                            docRef.update("password", User_Password);
+                                        }
+                                        Common.currentUser = user;
                                         com.ekspeace.buddyapp.Constant.PopUp.smallToast(LoginActivity.this, layout, R.drawable.small_success, "Your have logged in successfully", Toast.LENGTH_SHORT);
                                         loadingBar.setVisibility(View.GONE);
                                         Intent myIntent = new Intent(LoginActivity.this,

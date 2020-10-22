@@ -16,6 +16,8 @@ import com.google.firebase.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 public class Common {
     public static final int TIME_SLOT_TOTAL = 10;
@@ -54,7 +56,9 @@ public class Common {
     public static OrderInformation currentOrder;
     public static String currentOrderId;
     public static final String UserEmailKey = "UserPassword";
-    public static OrderInformation currentOrderInfo;
+    public static HashMap<String, Object> currentOrderInfo;
+    public static int OrderPosition;
+    public static int BookPosition;
 
     public static String convertTimeToString(int slot) {
 

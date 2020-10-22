@@ -5,7 +5,6 @@ import com.google.firebase.Timestamp;
 
 public class BookingInformation {
     private String categoryName,BookingId, serviceName,serviceId;
-
     private String customerName;
     private String customerPhone;
     private String time;
@@ -83,7 +82,6 @@ public class BookingInformation {
     public void setTime(String time) {
         this.time = time;
     }
-
     public String getCustomerAddress() {
         return customerAddress;
     }
